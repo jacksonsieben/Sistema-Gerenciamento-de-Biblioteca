@@ -24,6 +24,6 @@ namespace SistemaBiblioteca.Pages.Models
         public LivroModel? Livro { get; set; }
 
         [Required(ErrorMessage = "Nome do Usuário é obrigatório!")]
-        public int NomeUsuario { get; set; } 
+        public string? NomeUsuario { get; set; } 
     }
 }
