@@ -1,0 +1,4 @@
+obj/
+
+*.db-shm
+*.db-wal
