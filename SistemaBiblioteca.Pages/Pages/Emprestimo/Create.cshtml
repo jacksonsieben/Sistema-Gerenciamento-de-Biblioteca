@@ -1,0 +1,51 @@
+@page
+@model SistemaBiblioteca.Pages.Pages.Emprestimo.Create
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+<link rel="stylesheet" href="~/lib/css/estilo.css"/>
+<h1>Cadastrar Dados do Emprestimo</h1>
+
+<hr/>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-dange"></div>
+            <input type="hidden" asp-for="EmprestimoModel.EmprestimoID"/>
+            <div class="form-group">
+                <label asp-for="EmprestimoModel.DataEmprestimo"></label>
+                <input asp-for="EmprestimoModel.DataEmprestimo" class="form-control"/>
+                <span asp-validation-for="EmprestimoModel.DataEmprestimo" class="text-dange"></span>
+            </div>
+            <br/>
+            <div class="form-group">
+                <label asp-for="EmprestimoModel.DataDevolucaoPrevista"></label>
+                <input asp-for="EmprestimoModel.DataDevolucaoPrevista" class="form-control"></textarea>
+                <span asp-validation-for="EmprestimoModel.DataDevolucaoPrevista" class="text-dange"></span>
+            </div>
+            <br/>
+            <div class="form-group">
+                <label asp-for="EmprestimoModel.BibliotecarioID"></label>
+                <input asp-for="EmprestimoModel.BibliotecarioID" class="form-control"/>
+                <span asp-validation-for="EmprestimoModel.BibliotecarioID" class="text-dange"></span>
+            </div>
+            <br/>
+            <div class="form-group">
+                <label asp-for="EmprestimoModel.LivroID"></label>
+                <input asp-for="EmprestimoModel.LivroID" class="form-control" maxlength="15"/>
+                <span asp-validation-for="EmprestimoModel.LivroID" class="text-dange"></span>
+            </div>
+            <br/>
+            <div class="form-group">
+                <label asp-for="EmprestimoModel.NomeUsuario"></label>
+                <input asp-for="EmprestimoModel.NomeUsuario" class="form-control" maxlength="15"/>
+                <span asp-validation-for="EmprestimoModel.NomeUsuario" class="text-dange"></span>
+            </div>
+            <br/>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Salvar"/>
+                <a asp-page="/Emprestimo/Index" class="btn btn-secondary"> Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
