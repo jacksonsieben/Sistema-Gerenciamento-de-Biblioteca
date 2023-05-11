@@ -11,12 +11,12 @@
     <table class="table table-bordered table-sm table-hover-custom">
         <thead>
             <tr>
-                <td scope="col">ID Emprestimo</td>
-                <td scope="col">Bibliotecario</td>
+                <td scope="col">ID Empréstimo</td>
+                <td scope="col">Bibliotecário</td>
                 <td scope="col">Livro</td>
-                <td scope="col">Nome do Usuario</td>
-                <td scope="col">Data de Emprestimo</td>
-                <td scope="col">Data de Devolucao</td>
+                <td scope="col">Nome do Usuário</td>
+                <td scope="col" data-type="date" data-format-string="DD/MMMM/YYYY">Data de Emprestimo</td>
+                <td scope="col">Data de Devolução</td>
                 <td scope="col"></td>
             </tr>
         </thead>
@@ -28,8 +28,8 @@
                     <td>@Html.DisplayFor(model => emprestimoModel.Bibliotecario!.Nome)</td>
                     <td>@Html.DisplayFor(model => emprestimoModel.Livro!.ISBN)</td>   
                     <td>@Html.DisplayFor(model => emprestimoModel.NomeUsuario)</td>
-                    <td>@Html.DisplayFor(model => emprestimoModel.DataEmprestimo)</td>
-                    <td>@Html.DisplayFor(model => emprestimoModel.DataDevolucaoPrevista)</td>
+                    <td>@Convert.ToDateTime(emprestimoModel.DataEmprestimo).ToString("dd/MM/yyyy")</td>
+                    <td>@Convert.ToDateTime(emprestimoModel.DataDevolucaoPrevista).ToString("dd/MM/yyyy")</td>
                     <td>
                         <a class="btn btn-sm btn-secondary active" asp-page="./Edit" asp-route-id="@emprestimoModel.EmprestimoID"> <i class="fa fa-pencil"></i></a>
                         <a class="btn btn-sm btn-success active" asp-page="./Details" asp-route-id="@emprestimoModel.EmprestimoID"> <i class="fa fa-eye"></i> </a>
@@ -39,7 +39,7 @@
             }
         </tbody>
     </table>
-<p style="text-align:center"><a class="btn btn-primary" role="button" asp-page="./Create"> <strong>Novo Bibliotecario</strong></a></p>
+<p style="text-align:center"><a class="btn btn-primary" role="button" asp-page="./Create"> <strong>Novo Empréstimo</strong></a></p>
 </div>
 
 <style>

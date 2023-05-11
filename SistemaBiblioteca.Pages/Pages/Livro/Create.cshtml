@@ -12,6 +12,12 @@
             <div asp-validation-summary="ModelOnly" class="text-dange"></div>
             <input type="hidden" asp-for="LivroModel.LivroID"/>
             <div class="form-group">
+                <label>Título do Livro</label>
+                <input asp-for="LivroModel.TituloLivro" class="form-control"/>
+                <span asp-validation-for="LivroModel.TituloLivro" class="text-dange"></span>
+            </div>
+            <br/>
+            <div class="form-group">
                 <label asp-for="LivroModel.Autor"></label>
                 <input asp-for="LivroModel.Autor" class="form-control"/>
                 <span asp-validation-for="LivroModel.Autor" class="text-dange"></span>

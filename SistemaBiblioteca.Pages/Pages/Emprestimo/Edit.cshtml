@@ -1,48 +1,48 @@
-@page "{id:int}"
+@page
 @model SistemaBiblioteca.Pages.Pages.Emprestimo.Edit
 
-<div align="center">
-@if(TempData["Mensagem"] != null)
-{
-   <div class="alert alert-danger">@TempData["Mensagem"]</div>
-}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
 <link rel="stylesheet" href="~/lib/css/estilo.css"/>
-</div>
-<h1>Alterar Dados do Bibliotecario</h1>
-<hr/>
+<h1>Alterar Dados do Emprestimo</h1>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<hr/>
 <div class="row">
     <div class="col-md-4">
         <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-dange"></div>
+            @* <div asp-validation-summary="ModelOnly" class="text-dange"></div> *@
             <input type="hidden" asp-for="EmprestimoModel.EmprestimoID"/>
             <div class="form-group">
-                <label asp-for="EmprestimoModel.DataEmprestimo"></label>
-                <input asp-for="EmprestimoModel.DataEmprestimo" class="form-control"/>
+                <label>Data do Empréstimo</label>
+                <input asp-for="EmprestimoModel.DataEmprestimo" type = "date" class="form-control"/>
                 <span asp-validation-for="EmprestimoModel.DataEmprestimo" class="text-dange"></span>
             </div>
             <br/>
             <div class="form-group">
-                <label asp-for="EmprestimoModel.DataDevolucaoPrevista"></label>
-                <input asp-for="EmprestimoModel.DataDevolucaoPrevista" class="form-control"></textarea>
+                <label>Data Prevista para Devolução</label>
+                <input asp-for="EmprestimoModel.DataDevolucaoPrevista" type="date" class="form-control"></textarea>
                 <span asp-validation-for="EmprestimoModel.DataDevolucaoPrevista" class="text-dange"></span>
             </div>
             <br/>
+            <label >Nome do Bibliotecário</label></br>
+            <select class="form-control" asp-for="EmprestimoModel.BibliotecarioID">
+            <option value="">Selecione um Bibliotecário</option>
+            @foreach (var bibliotecarioModel in Model.BibliotecarioList)
+            {
+                <option value="@bibliotecarioModel.BibliotecarioID">@bibliotecarioModel.Nome</option>
+            }
+            </select>
+            </br>
+            <label asp-for="EmprestimoModel.LivroID">Título do Livro</label></br>
+            <select class="form-control" asp-for="EmprestimoModel.LivroID">
+            <option value="">Selecione um Livro</option>
+            @foreach (var livroModel in Model.LivroList)
+            {
+                <option value="@livroModel.LivroID">@livroModel.TituloLivro</option>
+            }
+            </select>
+            </br>
             <div class="form-group">
-                <label asp-for="EmprestimoModel.BibliotecarioID"></label>
-                <input asp-for="EmprestimoModel.BibliotecarioID" class="form-control"/>
-                <span asp-validation-for="EmprestimoModel.BibliotecarioID" class="text-dange"></span>
-            </div>
-            <br/>
-            <div class="form-group">
-                <label asp-for="EmprestimoModel.LivroID"></label>
-                <input asp-for="EmprestimoModel.LivroID" class="form-control" maxlength="15"/>
-                <span asp-validation-for="EmprestimoModel.LivroID" class="text-dange"></span>
-            </div>
-            <br/>
-            <div class="form-group">
-                <label asp-for="EmprestimoModel.NomeUsuario"></label>
+                <label>Nome do Usuário</label>
                 <input asp-for="EmprestimoModel.NomeUsuario" class="form-control" maxlength="15"/>
                 <span asp-validation-for="EmprestimoModel.NomeUsuario" class="text-dange"></span>
             </div>
@@ -54,4 +54,3 @@
         </form>
     </div>
 </div>
-

@@ -11,7 +11,8 @@
     <table class="table table-bordered table-sm table-hover-custom">
         <thead>
             <tr>
-                <td scope="col">ID Livro</td>
+                <td scope="col">ID</td>
+                <td scope="col">Título</td>
                 <td scope="col">Autor</td>
                 <td scope="col">ISBN</td>
                 <td scope="col">Ano de Publicacao</td>
@@ -24,6 +25,7 @@
             {
                 <tr>
                     <td>@Html.DisplayFor(model => livroModel.LivroID)</td>
+                    <td>@Html.DisplayFor(model => livroModel.TituloLivro)</td>
                     <td>@Html.DisplayFor(model => livroModel.Autor)</td>
                     <td>@Html.DisplayFor(model => livroModel.ISBN)</td>   
                     <td>@Html.DisplayFor(model => livroModel.AnoPublicacao)</td>

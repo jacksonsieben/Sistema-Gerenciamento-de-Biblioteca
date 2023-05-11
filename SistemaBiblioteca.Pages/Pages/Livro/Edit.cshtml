@@ -17,6 +17,12 @@
             <div asp-validation-summary="ModelOnly" class="text-dange"></div>
             <input type="hidden" asp-for="LivroModel.LivroID"/>
             <div class="form-group">
+                <label>Título do Livro</label>
+                <input asp-for="LivroModel.TituloLivro" class="form-control"/>
+                <span asp-validation-for="LivroModel.TituloLivro" class="text-dange"></span>
+            </div>
+            <br/>
+            <div class="form-group">
                 <label asp-for="LivroModel.Autor"></label>
                 <input asp-for="LivroModel.Autor" class="form-control"/>
                 <span asp-validation-for="LivroModel.Autor" class="text-dange"></span>
@@ -47,37 +53,3 @@
         </form>
     </div>
 </div>
-
-@section Scripts
-{
-<script>
-    const handlePhone = (event) => {
-        let input = event.target
-        input.value = phoneMask(input.value)
-    }
-
-    const phoneMask = (value) => {
-        if (!value) return ""
-        value = value.replace(/\D/g, '')
-        value = value.replace(/(\d{2})(\d)/, "($1) $2")
-        value = value.replace(/(\d)(\d{4})$/, "$1-$2")
-        return value
-    }
-
-    const handlePassword = (event) => {
-        let input = event.target
-        input.value = passwordMask(input.value)
-    }
-
-    const passwordMask = (value) => {
-        if (!value) return ""
-        let maskedValue = ''
-        for (let i = 0; i < value.length; i++) {
-            maskedValue += '*'
-        }
-        return maskedValue
-    }
-
-
-</script>
-}
